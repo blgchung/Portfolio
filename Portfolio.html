@@ -1,0 +1,1231 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Portfolio</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body, #app {
+      height: 100%;
+      width: 100%;
+    }
+    
+    body {
+      font-family: 'Sora', sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+    }
+    
+    .hero-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .section-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.01em;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .project-card:hover {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+      border-color: #cbd5e1;
+      transform: translateY(-6px);
+    }
+    
+    .project-card-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .project-card-content {
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .project-card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #0f172a;
+    }
+    
+    .project-card-desc {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+      line-height: 1.6;
+    }
+    
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .tech-tag {
+      font-size: 0.8rem;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 0.35rem 0.75rem;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+    
+    .skill-category {
+      margin-bottom: 2rem;
+    }
+    
+    .skill-category-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin-bottom: 0.75rem;
+    }
+    
+    .skill-badge {
+      display: inline-block;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin-right: 0.6rem;
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    .skill-badge:hover {
+      background: #e2e8f0;
+      border-color: #cbd5e1;
+    }
+    
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 0.5rem 0;
+    }
+    
+    .contact-link:hover {
+      color: #3b82f6;
+    }
+
+    .nav-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-button:hover {
+      opacity: 0.7;
+    }
+    
+    .cta-button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .cta-button:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+    
+    .cta-button-secondary {
+      background: transparent;
+      color: #3b82f6;
+      border: 2px solid #3b82f6;
+      padding: 0.65rem 1.75rem;
+    }
+    
+    .cta-button-secondary:hover {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .hero-section-content {
+      animation: slideInUp 0.6s ease-out;
+    }
+    
+    .project-grid-item {
+      animation: slideInUp 0.6s ease-out;
+      animation-fill-mode: both;
+    }
+    
+    .project-grid-item:nth-child(1) { animation-delay: 0.1s; }
+    .project-grid-item:nth-child(2) { animation-delay: 0.15s; }
+    .project-grid-item:nth-child(3) { animation-delay: 0.2s; }
+    .project-grid-item:nth-child(4) { animation-delay: 0.25s; }
+    .project-grid-item:nth-child(5) { animation-delay: 0.3s; }
+
+    .photo-scroller {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      scroll-behavior: smooth;
+      padding-bottom: 1rem;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .photo-scroller::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .photo-scroller::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+
+    .photo-scroller::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .photo-scroller::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    .photo-item {
+      flex: 0 0 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .photo-item-image {
+      width: 280px;
+      height: 280px;
+      background: #f1f5f9;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .photo-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #detail-image {
+      transition: opacity 0.4s ease-in-out;
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app" class="w-full h-full overflow-auto">
+   <nav class="fixed top-0 w-full bg-white/95 backdrop-blur shadow-sm" style="z-index: 8000;">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+     <button class="text-xl font-bold nav-button" id="nav-name" onclick="goToHome()">Your Name</button>
+     <div class="flex gap-6 items-center">
+      <a href="#projects" class="text-gray-600 hover:text-gray-900" onclick="goToHome()">Projects</a> <a href="#skills" class="text-gray-600 hover:text-gray-900" onclick="goToHome()">Skills</a> <a href="#contact" class="text-gray-600 hover:text-gray-900" onclick="goToHome()">Contact</a>
+     </div>
+    </div>
+   </nav>
+   <div id="project-detail" style="display: none;" class="pt-20 pb-32 px-6">
+    <div class="max-w-4xl mx-auto">
+     <h1 class="hero-title mb-4" id="detail-title">Project Title</h1>
+     <p class="text-xl text-gray-600 mb-8" id="detail-description">Project description goes here</p>
+     <h3 class="section-title" id="gallery-title-project5" style="display: none; margin-top: 0; margin-bottom: 1.5rem;" data-editable="project_5_gallery_title">Gallery</h3>
+     <div class="relative w-full mb-8" id="first-gallery-panel" style="display:none;">
+      <div class="w-full bg-white rounded-lg flex items-center justify-center overflow-hidden relative" style="height: 600px;">
+       <img id="detail-image" class="object-contain w-full h-full" alt="Project" loading="lazy" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
+      </div><button id="prev-photo" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="previousPhoto()" style="display:none;"> <i data-lucide="chevron-left" style="width: 24px; height: 24px;"></i> </button> <button id="next-photo" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="nextPhoto()" style="display:none;"> <i data-lucide="chevron-right" style="width: 24px; height: 24px;"></i> </button>
+      <div id="photo-counter" class="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium" style="display:none;"></div>
+     </div>
+     
+     
+     <div id="description-panel-1" style="display: none; margin: 3rem 0;">
+      <p id="detail-description-1" class="text-lg text-gray-700 leading-relaxed">Add description after first gallery here.</p>
+     </div>
+     <div class="relative w-full mb-8" id="second-gallery-panel" style="display: none;">
+      <div class="w-full bg-white rounded-lg flex items-center justify-center overflow-hidden relative" style="height: 600px;">
+       <img id="detail-image-2" class="object-contain w-full h-full" alt="Project" loading="lazy" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
+      </div><button id="prev-photo-2" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="previousPhoto2()" style="display:none;"> <i data-lucide="chevron-left" style="width: 24px; height: 24px;"></i> </button> <button id="next-photo-2" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="nextPhoto2()" style="display:none;"> <i data-lucide="chevron-right" style="width: 24px; height: 24px;"></i> </button>
+      <div id="photo-counter-2" class="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium" style="display:none;"></div>
+     </div>
+     <div id="description-panel-2" style="display: none; margin: 3rem 0;">
+      <p id="detail-description-2" class="text-lg text-gray-700 leading-relaxed">Add description after second gallery here.</p>
+     </div>
+     <div class="relative w-full mb-8" id="third-gallery-panel" style="display: none;">
+      <div class="w-full bg-white rounded-lg flex items-center justify-center overflow-hidden relative" style="height: 600px;">
+       <img id="detail-image-3" class="object-contain w-full h-full" alt="Project" loading="lazy" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
+      </div><button id="prev-photo-3" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="previousPhoto3()" style="display:none;"> <i data-lucide="chevron-left" style="width: 24px; height: 24px;"></i> </button> <button id="next-photo-3" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="nextPhoto3()" style="display:none;"> <i data-lucide="chevron-right" style="width: 24px; height: 24px;"></i> </button>
+      <div id="photo-counter-3" class="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium" style="display:none;"></div>
+     </div>
+     <div id="description-panel-3" style="display: none; margin: 3rem 0;">
+      <p id="detail-description-3" class="text-lg text-gray-700 leading-relaxed">Add description after third gallery here.</p>
+     </div>
+     <div class="relative w-full mb-8" id="fourth-gallery-panel" style="display: none;">
+      <div class="w-full bg-white rounded-lg flex items-center justify-center overflow-hidden relative" style="height: 600px;">
+       <img id="detail-image-4" class="object-contain w-full h-full" alt="Project" loading="lazy" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
+      </div><button id="prev-photo-4" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="previousPhoto4()" style="display:none;"> <i data-lucide="chevron-left" style="width: 24px; height: 24px;"></i> </button> <button id="next-photo-4" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="nextPhoto4()" style="display:none;"> <i data-lucide="chevron-right" style="width: 24px; height: 24px;"></i> </button>
+      <div id="photo-counter-4" class="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium" style="display:none;"></div>
+     </div>
+     <div id="description-panel-4" style="display: none; margin: 3rem 0;">
+      <p id="detail-description-4" class="text-lg text-gray-700 leading-relaxed">Add description after fourth gallery here.</p>
+     </div>
+     <div id="internship-1-block" style="display: none;">
+      <h2 class="section-title mt-12" id="internship-1-title"></h2>
+      <div class="relative w-full mb-8">
+       <div class="w-full bg-white rounded-lg flex items-center justify-center overflow-hidden relative" style="height: 600px;">
+        <img id="detail-image-int1" class="object-contain w-full h-full" alt="Internship 1" loading="lazy" onerror="this.style.background='#f0f4f8';">
+       </div>
+       <button id="prev-photo-int1" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="previousPhotoInt1()" style="display:none;"><i data-lucide="chevron-left" style="width: 24px; height: 24px;"></i></button>
+       <button id="next-photo-int1" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="nextPhotoInt1()" style="display:none;"><i data-lucide="chevron-right" style="width: 24px; height: 24px;"></i></button>
+       <div id="photo-counter-int1" class="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium" style="display:none;"></div>
+      </div>
+      <p id="internship-1-description" class="text-lg text-gray-700 leading-relaxed mb-8"></p>
+      <h2 class="section-title mt-12">Key Technologies</h2>
+      <div id="internship-1-tech" class="flex flex-wrap gap-2 mb-12"></div>
+     </div>
+     <div id="internship-2-block" style="display: none;">
+      <h2 class="section-title mt-12" id="internship-2-title"></h2>
+      <div class="relative w-full mb-8">
+       <div class="w-full bg-white rounded-lg flex items-center justify-center overflow-hidden relative" style="height: 600px;">
+        <img id="detail-image-int2" class="object-contain w-full h-full" alt="Internship 2" loading="lazy" onerror="this.style.background='#f0f4f8';">
+       </div>
+       <button id="prev-photo-int2" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="previousPhotoInt2()" style="display:none;"><i data-lucide="chevron-left" style="width: 24px; height: 24px;"></i></button>
+       <button id="next-photo-int2" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all" onclick="nextPhotoInt2()" style="display:none;"><i data-lucide="chevron-right" style="width: 24px; height: 24px;"></i></button>
+       <div id="photo-counter-int2" class="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium" style="display:none;"></div>
+      </div>
+      <p id="internship-2-description" class="text-lg text-gray-700 leading-relaxed mb-8"></p>
+      <h2 class="section-title mt-12">Key Technologies</h2>
+      <div id="internship-2-tech" class="flex flex-wrap gap-2 mb-12"></div>
+     </div>
+     <div class="prose max-w-none">
+      <h2 class="section-title mt-12" id="challenge-header" style="display: none;">Challenge</h2>
+      <p id="detail-challenge" class="text-lg text-gray-700 leading-relaxed mb-8" style="display: none;">Add the challenge here in the edit panel.</p>
+      <h2 class="section-title mt-12" id="solution-header">Solution</h2>
+      <p id="detail-solution" class="text-lg text-gray-700 leading-relaxed mb-8" style="display: none;">Add the solution here in the edit panel.</p>
+      <h3 class="text-xl font-semibold text-gray-800 mb-8" id="gallery-title-visible" style="display: none; margin-top: 0;">Gallery</h3>
+      <h2 class="section-title mt-12" id="tech-header">Key Technologies</h2>
+      <div id="detail-technologies" class="flex flex-wrap gap-2 mb-8"></div>
+      <h2 class="section-title mt-12" id="tech-header-proj4" style="display: none;">Key Technologies</h2>
+      <div id="detail-technologies-proj4" class="flex flex-wrap gap-2 mb-8" style="display: none;"></div>
+      
+      
+      <h2 class="section-title mt-12" id="outcome-header">Outcome &amp; Impact</h2>
+      <p id="detail-outcome" class="text-lg text-gray-700 leading-relaxed mb-8">Describe the results and impact of your project here.</p>
+      <div id="detail-photo-gallery" style="display: none; margin-top: 3rem;">
+       <h2 class="section-title">Project Photos</h2>
+       <div id="gallery-scroller" class="photo-scroller"></div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <header class="pt-32 pb-24 px-6 bg-white border-b border-gray-100" id="hero-section">
+    <div class="max-w-6xl mx-auto hero-section-content">
+     <h1 class="hero-title" id="hero-name">Your Full Name</h1>
+     <h2 class="text-xl font-semibold text-blue-600 mb-4" id="hero-headline">Professional Headline • Job Title</h2>
+     <p class="text-lg text-gray-700 max-w-3xl leading-relaxed mb-2" id="hero-about">Brief professional summary or bio goes here. Tell potential employers who you are and what you're passionate about.</p>
+     <div class="hero-cta-group">
+      <button class="cta-button" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})"> <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i> View Projects </button> <button class="cta-button cta-button-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"> <i data-lucide="mail" style="width: 18px; height: 18px;"></i> Get In Touch </button>
+     </div>
+    </div>
+   </header>
+   <section id="projects" class="py-28 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="section-title">Featured Projects</h2>
+     <div class="grid md:grid-cols-2 gap-8">
+      <div class="project-card project-grid-item cursor-pointer" onclick="viewProject(1)">
+       <div class="project-card-image">
+        <img id="proj1-image" class="w-full h-full object-cover" alt="Project 1" loading="lazy" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
+       </div>
+       <div class="project-card-content">
+        <h3 class="project-card-title" id="proj1-title">Project Title 1</h3>
+        <p class="project-card-desc" id="proj1-desc">Project description explaining what you built, your role, and the impact or outcomes.</p>
+        <div class="project-tech" id="proj1-tech"></div>
+       </div>
+      </div>
+      <div class="project-card project-grid-item cursor-pointer" onclick="viewProject(2)">
+       <div class="project-card-image">
+        <img id="proj2-image" class="w-full h-full object-cover" alt="Project 2" loading="lazy" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
+       </div>
+       <div class="project-card-content">
+        <h3 class="project-card-title" id="proj2-title">Project Title 2</h3>
+        <p class="project-card-desc" id="proj2-desc">Project description explaining what you built, your role, and the impact or outcomes.</p>
+        <div class="project-tech" id="proj2-tech"></div>
+       </div>
+      </div>
+      <div class="project-card project-grid-item cursor-pointer" onclick="viewProject(3)">
+       <div class="project-card-image">
+        <img id="proj3-image" class="w-full h-full object-cover" alt="Project 3" loading="lazy" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
+       </div>
+       <div class="project-card-content">
+        <h3 class="project-card-title" id="proj3-title">Project Title 3</h3>
+        <p class="project-card-desc" id="proj3-desc">Project description explaining what you built, your role, and the impact or outcomes.</p>
+        <div class="project-tech" id="proj3-tech"></div>
+       </div>
+      </div>
+      <div class="project-card project-grid-item cursor-pointer" onclick="viewProject(4)">
+       <div class="project-card-image">
+        <img id="proj4-image" class="w-full h-full object-cover" alt="Project 4" loading="lazy" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
+       </div>
+       <div class="project-card-content">
+        <h3 class="project-card-title" id="proj4-title">Project Title 4</h3>
+        <p class="project-card-desc" id="proj4-desc">Project description explaining what you built, your role, and the impact or outcomes.</p>
+        <div class="project-tech" id="proj4-tech"></div>
+       </div>
+      </div>
+      <div class="project-card project-grid-item cursor-pointer" onclick="viewProject(5)">
+       <div class="project-card-image">
+        <img id="proj5-image" class="w-full h-full object-cover" alt="Project 5" loading="lazy" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
+       </div>
+       <div class="project-card-content">
+        <h3 class="project-card-title" id="proj5-title">Project Title 5</h3>
+        <p class="project-card-desc" id="proj5-desc">Project description explaining what you built, your role, and the impact or outcomes.</p>
+        <div class="project-tech" id="proj5-tech"></div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="skills" class="py-28 px-6 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="section-title">Skills &amp; Expertise</h2>
+     <div id="skills-container" class="grid md:grid-cols-3 gap-12">
+     </div>
+    </div>
+   </section>
+   <section id="contact" class="py-28 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+     <h2 class="section-title">Let's Connect</h2>
+     <p class="text-lg text-gray-700 mb-12 max-w-2xl mx-auto">I'm always excited to collaborate on interesting projects and connect with fellow engineers. Feel free to reach out!</p>
+     <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
+      <a id="contact-email-link" href="mailto:your.email@example.com" class="contact-link text-blue-600 text-lg"> <i data-lucide="mail" class="w-6 h-6"></i> <span id="contact-email">your.email@example.com</span> </a> <a id="contact-phone-link" href="tel:+1555123456" class="contact-link text-blue-600 text-lg"> <i data-lucide="phone" class="w-6 h-6"></i> <span id="contact-phone">+1 (555) 123-4567</span> </a> <a id="contact-linkedin" href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-link text-blue-600 text-lg"> <i data-lucide="linkedin" class="w-6 h-6"></i> <span>LinkedIn Profile</span> </a>
+     </div>
+    </div>
+   </section>
+   <footer class="bg-gray-900 text-white py-8 px-6 text-center border-t border-gray-800">
+    <p>© 2024 Your Name. All rights reserved.</p>
+   </footer>
+  </div>
+  <script>
+    function setImageSafe(imgEl, url) {
+      if (!url || !url.trim()) {
+        imgEl.src = '';
+        imgEl.alt = 'No image provided';
+        imgEl.style.display = 'none';
+        return;
+      }
+
+      const cleanUrl = url.trim();
+      let finalUrl = cleanUrl;
+      if (cleanUrl.includes('imgur.com') && !cleanUrl.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+        finalUrl = cleanUrl + '.jpeg';
+      }
+      
+      imgEl.src = '';
+      setTimeout(() => {
+        imgEl.src = finalUrl + (finalUrl.includes('?') ? '&' : '?') + 't=' + Date.now();
+      }, 10);
+      imgEl.alt = 'Project image';
+      imgEl.style.display = 'block';
+    }
+
+    function goToHome() {
+      currentViewingProject = null;
+      document.getElementById('project-detail').style.display = 'none';
+      document.getElementById('hero-section').style.display = 'block';
+      document.getElementById('projects').style.display = 'block';
+      document.getElementById('skills').style.display = 'block';
+      document.getElementById('contact').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    let currentPhotoIndex = 0;
+    let currentProjectPhotos = [];
+    let currentViewingProject = null;
+    let currentPhotoIndex2 = 0;
+    let currentProjectPhotos2 = [];
+    let currentPhotoIndex3 = 0;
+    let currentProjectPhotos3 = [];
+    let currentPhotoIndex4 = 0;
+    let currentProjectPhotos4 = [];
+
+    function getProjectPhotos(projectNum) {
+      const photosString = config[`project_${projectNum}_photos`] || '';
+      if (!photosString.trim()) return [];
+      
+      return photosString
+        .split(',')
+        .map(url => url.trim())
+        .filter(url => url.length > 0);
+    }
+
+    function getProjectPhotos5() {
+      const photosString = config.project_5_photos || '';
+      if (!photosString.trim()) return [];
+      
+      return photosString
+        .split(',')
+        .map(url => url.trim())
+        .filter(url => url.length > 0);
+    }
+
+    function getProjectPhotos2(projectNum) {
+      const photosString = config[`project_${projectNum}_photos_2`] || '';
+      if (!photosString.trim()) return [];
+      
+      return photosString
+        .split(',')
+        .map(url => url.trim())
+        .filter(url => url.length > 0);
+    }
+
+    function getProjectPhotos3(projectNum) {
+      const photosString = config[`project_${projectNum}_photos_3`] || '';
+      if (!photosString.trim()) return [];
+      
+      return photosString
+        .split(',')
+        .map(url => url.trim())
+        .filter(url => url.length > 0);
+    }
+
+    function getProjectPhotos4(projectNum) {
+      const photosString = config[`project_${projectNum}_photos_4`] || '';
+      if (!photosString.trim()) return [];
+      
+      return photosString
+        .split(',')
+        .map(url => url.trim())
+        .filter(url => url.length > 0);
+    }
+
+    let currentPhotoIndexInt1 = 0;
+    let currentPhotosInt1 = [];
+    let currentPhotoIndexInt2 = 0;
+    let currentPhotosInt2 = [];
+
+    function updatePhotoDisplayInt1() {
+      if (currentPhotosInt1.length === 0) return;
+      setImageSafe(document.getElementById('detail-image-int1'), currentPhotosInt1[currentPhotoIndexInt1]);
+      const counter = document.getElementById('photo-counter-int1');
+      counter.textContent = `${currentPhotoIndexInt1 + 1} / ${currentPhotosInt1.length}`;
+      const show = currentPhotosInt1.length > 1;
+      document.getElementById('prev-photo-int1').style.display = show ? 'flex' : 'none';
+      document.getElementById('next-photo-int1').style.display = show ? 'flex' : 'none';
+      counter.style.display = show ? 'block' : 'none';
+    }
+
+    function previousPhotoInt1() {
+      currentPhotoIndexInt1 = (currentPhotoIndexInt1 - 1 + currentPhotosInt1.length) % currentPhotosInt1.length;
+      updatePhotoDisplayInt1();
+    }
+
+    function nextPhotoInt1() {
+      currentPhotoIndexInt1 = (currentPhotoIndexInt1 + 1) % currentPhotosInt1.length;
+      updatePhotoDisplayInt1();
+    }
+
+    function updatePhotoDisplayInt2() {
+      if (currentPhotosInt2.length === 0) return;
+      setImageSafe(document.getElementById('detail-image-int2'), currentPhotosInt2[currentPhotoIndexInt2]);
+      const counter = document.getElementById('photo-counter-int2');
+      counter.textContent = `${currentPhotoIndexInt2 + 1} / ${currentPhotosInt2.length}`;
+      const show = currentPhotosInt2.length > 1;
+      document.getElementById('prev-photo-int2').style.display = show ? 'flex' : 'none';
+      document.getElementById('next-photo-int2').style.display = show ? 'flex' : 'none';
+      counter.style.display = show ? 'block' : 'none';
+    }
+
+    function previousPhotoInt2() {
+      currentPhotoIndexInt2 = (currentPhotoIndexInt2 - 1 + currentPhotosInt2.length) % currentPhotosInt2.length;
+      updatePhotoDisplayInt2();
+    }
+
+    function nextPhotoInt2() {
+      currentPhotoIndexInt2 = (currentPhotoIndexInt2 + 1) % currentPhotosInt2.length;
+      updatePhotoDisplayInt2();
+    }
+
+    function updateDetailPage(projectNum) {
+      // Reset all panels to default hidden state
+      document.getElementById('first-gallery-panel').style.display = 'none';
+      document.getElementById('second-gallery-panel').style.display = 'none';
+      document.getElementById('third-gallery-panel').style.display = 'none';
+      document.getElementById('fourth-gallery-panel').style.display = 'none';
+      document.getElementById('description-panel-1').style.display = 'none';
+      document.getElementById('description-panel-2').style.display = 'none';
+      document.getElementById('description-panel-3').style.display = 'none';
+      document.getElementById('description-panel-4').style.display = 'none';
+      document.getElementById('internship-1-block').style.display = 'none';
+      document.getElementById('internship-2-block').style.display = 'none';
+      document.getElementById('challenge-header').style.display = 'none';
+      document.getElementById('detail-challenge').style.display = 'none';
+      document.getElementById('solution-header').style.display = 'none';
+      document.getElementById('detail-solution').style.display = 'none';
+      document.getElementById('tech-header').style.display = 'none';
+      document.getElementById('detail-technologies').style.display = 'none';
+      document.getElementById('outcome-header').style.display = 'none';
+      document.getElementById('detail-outcome').style.display = 'none';
+      document.getElementById('gallery-title-project5').style.display = 'none';
+      document.getElementById('gallery-title-visible').style.display = 'none';
+      document.getElementById('detail-image').style.display = 'none';
+      document.getElementById('prev-photo').style.display = 'none';
+      document.getElementById('next-photo').style.display = 'none';
+      document.getElementById('photo-counter').style.display = 'none';
+
+      document.getElementById('detail-title').textContent = config[`project_${projectNum}_title`] || '';
+      document.getElementById('detail-description').textContent = config[`project_${projectNum}_description`] || '';
+      
+      const challengeHeader = document.getElementById('challenge-header');
+      const challengeText = document.getElementById('detail-challenge');
+      const solutionHeader = document.getElementById('solution-header');
+      const solutionText = document.getElementById('detail-solution');
+      
+      if (projectNum === 4) {
+        document.getElementById('first-gallery-panel').style.display = 'block';
+        document.getElementById('gallery-title-project5').style.display = 'none';
+        challengeHeader.style.display = 'none';
+        challengeText.style.display = 'none';
+        solutionHeader.style.display = 'none';
+        solutionText.style.display = 'none';
+        document.getElementById('tech-header').style.display = 'none';
+        document.getElementById('detail-technologies').style.display = 'none';
+        document.getElementById('outcome-header').style.display = 'none';
+        document.getElementById('detail-outcome').style.display = 'none';
+        
+        // Load all 4 galleries for project 4
+        currentProjectPhotos = getProjectPhotos(4);
+        currentProjectPhotos2 = getProjectPhotos2(4);
+        currentProjectPhotos3 = getProjectPhotos3(4);
+        currentProjectPhotos4 = getProjectPhotos4(4);
+        currentPhotoIndex = 0;
+        currentPhotoIndex2 = 0;
+        currentPhotoIndex3 = 0;
+        currentPhotoIndex4 = 0;
+        
+        // Update first gallery
+        if (currentProjectPhotos.length > 0) {
+          document.getElementById('detail-image').style.display = 'block';
+          updatePhotoDisplay();
+        } else {
+          document.getElementById('detail-image').src = '';
+          document.getElementById('first-gallery-panel').style.display = 'none';
+          document.getElementById('detail-image').style.display = 'none';
+          document.getElementById('prev-photo').style.display = 'none';
+          document.getElementById('next-photo').style.display = 'none';
+          document.getElementById('photo-counter').style.display = 'none';
+        }
+        
+        // Update second gallery
+        if (currentProjectPhotos2.length > 0) {
+          document.getElementById('detail-image-2').style.display = 'block';
+          document.getElementById('second-gallery-panel').style.display = 'block';
+          updatePhotoDisplay2();
+        } else {
+          document.getElementById('detail-image-2').src = '';
+          document.getElementById('detail-image-2').style.display = 'none';
+          document.getElementById('second-gallery-panel').style.display = 'none';
+          document.getElementById('prev-photo-2').style.display = 'none';
+          document.getElementById('next-photo-2').style.display = 'none';
+          document.getElementById('photo-counter-2').style.display = 'none';
+        }
+        
+        // Update third gallery
+        if (currentProjectPhotos3.length > 0) {
+          document.getElementById('detail-image-3').style.display = 'block';
+          document.getElementById('third-gallery-panel').style.display = 'block';
+          updatePhotoDisplay3();
+        } else {
+          document.getElementById('detail-image-3').src = '';
+          document.getElementById('detail-image-3').style.display = 'none';
+          document.getElementById('third-gallery-panel').style.display = 'none';
+          document.getElementById('prev-photo-3').style.display = 'none';
+          document.getElementById('next-photo-3').style.display = 'none';
+          document.getElementById('photo-counter-3').style.display = 'none';
+        }
+        
+        // Update fourth gallery
+        if (currentProjectPhotos4.length > 0) {
+          document.getElementById('detail-image-4').style.display = 'block';
+          document.getElementById('fourth-gallery-panel').style.display = 'block';
+          updatePhotoDisplay4();
+        } else {
+          document.getElementById('detail-image-4').src = '';
+          document.getElementById('detail-image-4').style.display = 'none';
+          document.getElementById('fourth-gallery-panel').style.display = 'none';
+          document.getElementById('prev-photo-4').style.display = 'none';
+          document.getElementById('next-photo-4').style.display = 'none';
+          document.getElementById('photo-counter-4').style.display = 'none';
+        }
+
+        // Show description panels
+        document.getElementById('description-panel-1').style.display = 'block';
+        document.getElementById('detail-description-1').textContent = config.project_4_description_1 || 'Add description after first gallery here';
+        document.getElementById('description-panel-2').style.display = 'block';
+        document.getElementById('detail-description-2').textContent = config.project_4_description_2 || 'Add description after second gallery here';
+        document.getElementById('description-panel-3').style.display = 'block';
+        document.getElementById('detail-description-3').textContent = config.project_4_description_3 || 'Add description after third gallery here';
+        document.getElementById('description-panel-4').style.display = 'block';
+        document.getElementById('detail-description-4').textContent = config.project_4_description_4 || 'Add description after fourth gallery here';
+      } else {
+        if (projectNum === 5) {
+          challengeHeader.style.display = 'none';
+          challengeText.style.display = 'none';
+          solutionHeader.style.display = 'none';
+          solutionText.style.display = 'none';
+          document.getElementById('gallery-title-project5').style.display = 'none';
+          document.getElementById('gallery-title-visible').style.display = 'none';
+          document.getElementById('tech-header').style.display = 'none';
+          document.getElementById('detail-technologies').style.display = 'none';
+          document.getElementById('outcome-header').style.display = 'none';
+          document.getElementById('detail-outcome').style.display = 'none';
+          document.getElementById('detail-image').style.display = 'none';
+          document.getElementById('prev-photo').style.display = 'none';
+          document.getElementById('next-photo').style.display = 'none';
+          document.getElementById('photo-counter').style.display = 'none';
+
+          document.getElementById('internship-1-block').style.display = 'block';
+          document.getElementById('internship-1-title').textContent = config.project_5_internship_1_title || '';
+          document.getElementById('internship-1-description').textContent = config.project_5_internship_1_description || '';
+          currentPhotosInt1 = (config.project_5_internship_1_photos || '').split(',').map(u => u.trim()).filter(u => u);
+          currentPhotoIndexInt1 = 0;
+          if (currentPhotosInt1.length > 0) {
+            document.getElementById('detail-image-int1').style.display = 'block';
+            updatePhotoDisplayInt1();
+          } else {
+            document.getElementById('detail-image-int1').style.display = 'none';
+          }          
+          const techs1 = (config.project_5_internship_1_technologies || '').split(',').map(t => t.trim()).filter(t => t);
+          document.getElementById('internship-1-tech').innerHTML = techs1.map(t => `<span class="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">${t}</span>`).join('');
+
+          document.getElementById('internship-2-block').style.display = 'block';
+          document.getElementById('internship-2-title').textContent = config.project_5_internship_2_title || '';
+          document.getElementById('internship-2-description').textContent = config.project_5_internship_2_description || '';
+          currentPhotosInt2 = (config.project_5_internship_2_photos || '').split(',').map(u => u.trim()).filter(u => u);
+          currentPhotoIndexInt2 = 0;
+          if (currentPhotosInt2.length > 0) {
+            document.getElementById('detail-image-int2').style.display = 'block';
+            updatePhotoDisplayInt2();
+          } else {
+            document.getElementById('detail-image-int2').style.display = 'none';
+          }          
+          const techs2 = (config.project_5_internship_2_technologies || '').split(',').map(t => t.trim()).filter(t => t);
+          document.getElementById('internship-2-tech').innerHTML = techs2.map(t => `<span class="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">${t}</span>`).join('');
+
+          currentProjectPhotos = [];
+          currentPhotoIndex = 0;
+        } else {
+          document.getElementById('internship-1-block').style.display = 'none';
+          document.getElementById('internship-2-block').style.display = 'none';
+          document.getElementById('first-gallery-panel').style.display = 'block';
+          document.getElementById('gallery-title-project5').style.display = 'none';
+          challengeHeader.style.display = 'block';
+          challengeText.style.display = 'block';
+          challengeText.textContent = config[`project_${projectNum}_challenge`] || 'Add challenge in edit panel';
+          solutionHeader.style.display = 'block';
+          solutionText.style.display = 'block';
+          
+          
+          // Load photos for standard projects
+          document.getElementById('gallery-title-visible').style.display = 'none';
+          currentProjectPhotos = getProjectPhotos(projectNum);
+          currentPhotoIndex = 0;
+          
+          if (currentProjectPhotos.length > 0) {
+            document.getElementById('detail-image').style.display = 'block';
+            updatePhotoDisplay();
+          } else {
+            document.getElementById('detail-image').src = '';
+            document.getElementById('detail-image').style.display = 'none';
+            document.getElementById('prev-photo').style.display = 'none';
+            document.getElementById('next-photo').style.display = 'none';
+            document.getElementById('photo-counter').style.display = 'none';
+          }
+        }
+        if (projectNum !== 5) {
+          document.getElementById('tech-header').style.display = 'block';
+          document.getElementById('detail-technologies').style.display = 'flex';
+        }
+        document.getElementById('description-panel-1').style.display = 'none';
+        document.getElementById('description-panel-2').style.display = 'none';
+        document.getElementById('description-panel-3').style.display = 'none';
+        document.getElementById('description-panel-4').style.display = 'none';
+        document.getElementById('second-gallery-panel').style.display = 'none';
+        document.getElementById('third-gallery-panel').style.display = 'none';
+        document.getElementById('fourth-gallery-panel').style.display = 'none';
+      }
+      
+      solutionText.textContent = config[`project_${projectNum}_solution`] || 'Add solution in edit panel';
+      document.getElementById('detail-outcome').textContent = config[`project_${projectNum}_outcome`] || 'Add outcome and impact in edit panel';
+      
+      const techString = config[`project_${projectNum}_technologies`] || '';
+      const techs = techString.split(',').map(t => t.trim()).filter(t => t);
+      const techContainer = document.getElementById('detail-technologies');
+      techContainer.innerHTML = techs.map(tech => `<span class="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">${tech}</span>`).join('');
+    }
+
+    function previousPhoto() {
+      if (currentProjectPhotos.length > 0) {
+        currentPhotoIndex = (currentPhotoIndex - 1 + currentProjectPhotos.length) % currentProjectPhotos.length;
+        updatePhotoDisplay();
+      }
+    }
+
+    function nextPhoto() {
+      if (currentProjectPhotos.length > 0) {
+        currentPhotoIndex = (currentPhotoIndex + 1) % currentProjectPhotos.length;
+        updatePhotoDisplay();
+      }
+    }
+
+    function previousPhoto2() {
+      if (currentProjectPhotos2.length > 0) {
+        currentPhotoIndex2 = (currentPhotoIndex2 - 1 + currentProjectPhotos2.length) % currentProjectPhotos2.length;
+        updatePhotoDisplay2();
+      }
+    }
+
+    function nextPhoto2() {
+      if (currentProjectPhotos2.length > 0) {
+        currentPhotoIndex2 = (currentPhotoIndex2 + 1) % currentProjectPhotos2.length;
+        updatePhotoDisplay2();
+      }
+    }
+
+    function previousPhoto3() {
+      if (currentProjectPhotos3.length > 0) {
+        currentPhotoIndex3 = (currentPhotoIndex3 - 1 + currentProjectPhotos3.length) % currentProjectPhotos3.length;
+        updatePhotoDisplay3();
+      }
+    }
+
+    function nextPhoto3() {
+      if (currentProjectPhotos3.length > 0) {
+        currentPhotoIndex3 = (currentPhotoIndex3 + 1) % currentProjectPhotos3.length;
+        updatePhotoDisplay3();
+      }
+    }
+
+    function previousPhoto4() {
+      if (currentProjectPhotos4.length > 0) {
+        currentPhotoIndex4 = (currentPhotoIndex4 - 1 + currentProjectPhotos4.length) % currentProjectPhotos4.length;
+        updatePhotoDisplay4();
+      }
+    }
+
+    function nextPhoto4() {
+      if (currentProjectPhotos4.length > 0) {
+        currentPhotoIndex4 = (currentPhotoIndex4 + 1) % currentProjectPhotos4.length;
+        updatePhotoDisplay4();
+      }
+    }
+
+    function updatePhotoDisplay() {
+      if (currentProjectPhotos.length === 0) return;
+      
+      const imageEl = document.getElementById('detail-image');
+      const photoUrl = currentProjectPhotos[currentPhotoIndex];
+      
+      setImageSafe(imageEl, photoUrl);
+      
+      const counter = document.getElementById('photo-counter');
+      counter.textContent = `${currentPhotoIndex + 1} / ${currentProjectPhotos.length}`;
+      
+      const prevBtn = document.getElementById('prev-photo');
+      const nextBtn = document.getElementById('next-photo');
+      if (currentProjectPhotos.length > 1) {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+        counter.style.display = 'block';
+      } else {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        counter.style.display = 'none';
+      }
+    }
+
+    function updatePhotoDisplay2() {
+      if (currentProjectPhotos2.length === 0) return;
+      
+      const imageEl = document.getElementById('detail-image-2');
+      const photoUrl = currentProjectPhotos2[currentPhotoIndex2];
+      
+      setImageSafe(imageEl, photoUrl);
+      
+      const counter = document.getElementById('photo-counter-2');
+      counter.textContent = `${currentPhotoIndex2 + 1} / ${currentProjectPhotos2.length}`;
+      
+      const prevBtn = document.getElementById('prev-photo-2');
+      const nextBtn = document.getElementById('next-photo-2');
+      if (currentProjectPhotos2.length > 1) {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+        counter.style.display = 'block';
+      } else {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        counter.style.display = 'none';
+      }
+    }
+
+    function updatePhotoDisplay3() {
+      if (currentProjectPhotos3.length === 0) return;
+      
+      const imageEl = document.getElementById('detail-image-3');
+      const photoUrl = currentProjectPhotos3[currentPhotoIndex3];
+      
+      setImageSafe(imageEl, photoUrl);
+      
+      const counter = document.getElementById('photo-counter-3');
+      counter.textContent = `${currentPhotoIndex3 + 1} / ${currentProjectPhotos3.length}`;
+      
+      const prevBtn = document.getElementById('prev-photo-3');
+      const nextBtn = document.getElementById('next-photo-3');
+      if (currentProjectPhotos3.length > 1) {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+        counter.style.display = 'block';
+      } else {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        counter.style.display = 'none';
+      }
+    }
+
+    function updatePhotoDisplay4() {
+      if (currentProjectPhotos4.length === 0) return;
+      
+      const imageEl = document.getElementById('detail-image-4');
+      const photoUrl = currentProjectPhotos4[currentPhotoIndex4];
+      
+      setImageSafe(imageEl, photoUrl);
+      
+      const counter = document.getElementById('photo-counter-4');
+      counter.textContent = `${currentPhotoIndex4 + 1} / ${currentProjectPhotos4.length}`;
+      
+      const prevBtn = document.getElementById('prev-photo-4');
+      const nextBtn = document.getElementById('next-photo-4');
+      if (currentProjectPhotos4.length > 1) {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+        counter.style.display = 'block';
+      } else {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        counter.style.display = 'none';
+      }
+    }
+
+    function viewProject(projectNum) {
+      currentViewingProject = projectNum;
+      document.getElementById('hero-section').style.display = 'none';
+      document.getElementById('projects').style.display = 'none';
+      document.getElementById('skills').style.display = 'none';
+      document.getElementById('contact').style.display = 'none';
+      document.getElementById('project-detail').style.display = 'block';
+      
+      updateDetailPage(projectNum);
+      
+      window.scrollTo(0, 0);
+    }
+
+    const defaultConfig = {
+      full_name: "Boris Chung",
+      headline: "Mechanical Engineer | Mechatronic System Design | Hardware Integration",
+      about_text: "Mechanical Engineering (Honours) graduate from UQ with hands-on experience in mechatronic system design and hardware integration. Designed and deployed a motorized antenna control system for THIESS Mining, reducing alignment time by over 60% while meeting IP67 and AS3000 standards. Skilled in CAD, FEA, and embedded system integration for real-world engineering applications.",
+      project_1_title: "Motorised Antenna Orientation Control",
+      project_1_description: "Automated antenna alignment system for THIESS Mining. Replaced manual eye-alignment process with motorized control, reducing alignment time from 10–15 minutes to under 4 minutes per antenna.",
+      project_1_image: "https://i.imgur.com/VXGf8jU.jpeg",
+      project_1_photos: "https://i.imgur.com/VXGf8jU.jpeg, https://i.imgur.com/2B0SO9Z.jpeg",
+      project_1_impact: "60% faster alignment",
+      project_1_challenge: "Technicians manually aligned LTE antennas on 8-metre masts by eye, taking 10–15 minutes per antenna with high physical demand and inconsistent results.",
+      project_1_solution: "Designed and deployed an automated orientation system using stepper motors controlled by an embedded microcontroller. The system accepts signal strength input and calculates optimal antenna angle, achieving accurate alignment in under 4 minutes with minimal manual intervention.",
+      project_1_technologies: "CAD,FEA,Stepper Motors,Embedded Systems,IP67 Enclosure Design,AS3000 Standards",
+      project_1_outcome: "Reduced alignment time by over 60%, improved positioning accuracy to ±2°, met IP67 waterproof and AS3000 electrical safety standards, and successfully deployed across THIESS mining sites.",
+      project_2_title: "Remote-Controlled Tractor Pull System",
+      project_2_description: "In a competitive mechanical design course, we were tasked with building a remote-controlled tractor capable of pulling a 60 kg sled while delivering maximum pulling force, staying lightweight, and remaining structurally robust under dynamic loads.",
+      project_2_image: "",
+      project_2_photos: "",
+      project_2_impact: "Pulled 65kg, exceeded targets",
+      project_2_challenge: "Design a lightweight tractor that could pull 60 kg while maintaining structural integrity.",
+      project_2_solution: "Our design used optimized chassis geometry and drive ratios to maximize torque transfer.",
+      project_2_technologies: "CAD, Mechanical Design, Drive Systems, Composite Materials",
+      project_2_outcome: "Successfully pulled 65 kg, exceeding design targets while remaining 15% lighter than competing designs.",
+      project_3_title: "Remote-Controlled Mini Fire Truck",
+      project_3_description: "In our first university mechanical engineering design project, we were tasked with building a compact remote controlled fire-response vehicle for simulated fire fighting scenarios. The prototype had to quickly detect and extinguish fires under strict time limits while remaining lightweight, reliable, and cost effective.",
+      project_3_image: "",
+      project_3_photos: "",
+      project_3_impact: "95% success rate",
+      project_3_challenge: "Build a compact fire-fighting vehicle with autonomous fire detection and fast water delivery system.",
+      project_3_solution: "We integrated IR sensors and a high-pressure pump into a space-constrained chassis.",
+      project_3_technologies: "Mechanical Design, Sensors, Pumping Systems, Control Electronics",
+      project_3_outcome: "Completed fire scenarios 40% faster than baseline designs with 95% success rate in fire detection and extinguishing.",
+      project_4_title: "Other Projects",
+      project_4_description: "A collection of additional engineering projects and prototypes",
+      project_4_image: "",
+      project_4_photos: "https://i.imgur.com/TDQUE3v.jpeg, https://i.imgur.com/bC1FG2w.jpeg, https://i.imgur.com/EYpJJcT.jpeg",
+      project_4_photos_2: "https://i.imgur.com/8POisRh.jpeg",
+      project_4_photos_3: "https://i.imgur.com/TDQUE3v.jpeg",
+      project_4_photos_4: "https://i.imgur.com/bC1FG2w.jpeg",
+      project_4_description_1: "",
+      project_4_description_2: "",
+      project_4_description_3: "",
+      project_4_description_4: "",
+      project_4_impact: "",
+      project_4_solution: "Add solution description here",
+      project_4_technologies: "Engineering, Design, Prototyping",
+      project_4_outcome: "Add outcome and impact here",
+      project_5_title: "Internships",
+      project_5_description: "Your internship experience and projects here",
+      project_5_internship_1_title: "Internship 1 Company",
+      project_5_internship_1_description: "Describe your first internship here",
+      project_5_internship_1_photos: "",
+      project_5_internship_1_technologies: "Skill 1, Skill 2",
+      project_5_internship_2_title: "Internship 2 Company",
+      project_5_internship_2_description: "Describe your second internship here",
+      project_5_internship_2_photos: "",
+      project_5_internship_2_technologies: "Skill 1, Skill 2",
+      mechanical_header: "Mechanical",
+      mechanical_skills: "CAD, FEA, Mechanical Design, Drive Systems, Composite Materials",
+      electrical_header: "Electrical",
+      electrical_skills: "Stepper Motors, Embedded Systems, Sensors, Pumping Systems, Control Electronics",
+      software_header: "Software",
+      software_skills: "Programming, System Integration",
+      email: "borischung2002@gmail.com",
+      phone: "+61 042 208 2123",
+      linkedin: "https://www.linkedin.com/in/boris-chung02"
+    };
+
+    let config = { ...defaultConfig };
+
+    const element = {
+      defaultConfig,
+      onConfigChange: async (newConfig) => {
+        config = { ...defaultConfig, ...newConfig };
+        document.getElementById('nav-name').textContent = config.full_name;
+        document.getElementById('hero-name').textContent = config.full_name;
+        document.getElementById('hero-headline').textContent = config.headline;
+        document.getElementById('hero-about').textContent = config.about_text;
+
+        for (let i = 1; i <= 5; i++) {
+          const titleEl = document.getElementById(`proj${i}-title`);
+          const descEl = document.getElementById(`proj${i}-desc`);
+          const techContainer = document.getElementById(`proj${i}-tech`);
+          const imageEl = document.getElementById(`proj${i}-image`);
+
+          if (titleEl) titleEl.textContent = config[`project_${i}_title`];
+          if (descEl) descEl.textContent = config[`project_${i}_description`];
+
+          if (techContainer) {
+            const techString = config[`project_${i}_technologies`] || '';
+            const techs = techString.split(',').map(t => t.trim()).filter(t => t);
+            techContainer.innerHTML = techs.map(tech => `<span class="tech-tag">${tech}</span>`).join('');
+          }
+          
+          if (imageEl) {
+            const rawUrl = config[`project_${i}_image`] || '';
+            const photos = getProjectPhotos(i);
+            
+            const finalUrl = rawUrl || (photos.length > 0 ? photos[0] : '');
+            setImageSafe(imageEl, finalUrl);
+          }
+        }
+
+        const skillsContainer = document.getElementById('skills-container');
+        skillsContainer.innerHTML = '';
+        
+        const categories = {
+          [config.mechanical_header]: (config.mechanical_skills || '').split(',').map(s => s.trim()).filter(s => s),
+          [config.electrical_header]: (config.electrical_skills || '').split(',').map(s => s.trim()).filter(s => s),
+          [config.software_header]: (config.software_skills || '').split(',').map(s => s.trim()).filter(s => s)
+        };
+        
+        Object.entries(categories).forEach(([category, skills]) => {
+          if (skills.length > 0) {
+            const categoryHtml = `
+              <div class="skill-category">
+                <div class="skill-category-title">${category}</div>
+                <div>${skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('')}</div>
+              </div>
+            `;
+            skillsContainer.innerHTML += categoryHtml;
+          }
+        });
+
+        const contactEmailEl = document.getElementById('contact-email');
+        const contactEmailLinkEl = document.getElementById('contact-email-link');
+        const contactPhoneEl = document.getElementById('contact-phone');
+        const contactPhoneLinkEl = document.getElementById('contact-phone-link');
+        const contactLinkedinEl = document.getElementById('contact-linkedin');
+
+        if (contactEmailEl) contactEmailEl.textContent = config.email;
+        if (contactEmailLinkEl) contactEmailLinkEl.href = `mailto:${config.email}`;
+        if (contactPhoneEl) contactPhoneEl.textContent = config.phone;
+        if (contactPhoneLinkEl) contactPhoneLinkEl.href = `tel:${config.phone}`;
+        if (contactLinkedinEl) contactLinkedinEl.href = config.linkedin;
+
+        if (currentViewingProject !== null) {
+          const proj = currentViewingProject;
+          currentViewingProject = null;
+          setTimeout(() => {
+            currentViewingProject = proj;
+            updateDetailPage(proj);
+          }, 0);
+        }
+
+        lucide.createIcons();
+      },
+
+      mapToCapabilities: (config) => ({
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      }),
+
+      mapToEditPanelValues: (config) => new Map([
+        ['full_name', config.full_name || ''],
+        ['headline', config.headline || ''],
+        ['about_text', config.about_text || ''],
+        ['project_1_title', config.project_1_title || ''],
+        ['project_1_description', config.project_1_description || ''],
+        ['project_1_image', config.project_1_image || ''],
+        ['project_1_photos', config.project_1_photos || ''],
+        ['project_1_impact', config.project_1_impact || ''],
+        ['project_1_challenge', config.project_1_challenge || ''],
+        ['project_1_solution', config.project_1_solution || ''],
+        ['project_1_technologies', config.project_1_technologies || ''],
+        ['project_1_outcome', config.project_1_outcome || ''],
+        ['project_2_title', config.project_2_title || ''],
+        ['project_2_description', config.project_2_description || ''],
+        ['project_2_image', config.project_2_image || ''],
+        ['project_2_photos', config.project_2_photos || ''],
+        ['project_2_impact', config.project_2_impact || ''],
+        ['project_2_challenge', config.project_2_challenge || ''],
+        ['project_2_solution', config.project_2_solution || ''],
+        ['project_2_technologies', config.project_2_technologies || ''],
+        ['project_2_outcome', config.project_2_outcome || ''],
+        ['project_3_title', config.project_3_title || ''],
+        ['project_3_description', config.project_3_description || ''],
+        ['project_3_image', config.project_3_image || ''],
+        ['project_3_photos', config.project_3_photos || ''],
+        ['project_3_challenge', config.project_3_challenge || ''],
+        ['project_3_solution', config.project_3_solution || ''],
+        ['project_3_technologies', config.project_3_technologies || ''],
+        ['project_3_outcome', config.project_3_outcome || ''],
+        ['project_4_title', config.project_4_title || ''],
+        ['project_4_description', config.project_4_description || ''],
+        ['project_4_image', config.project_4_image || ''],
+        ['project_4_photos', config.project_4_photos || ''],
+        ['project_4_photos_2', config.project_4_photos_2 || ''],
+        ['project_4_photos_3', config.project_4_photos_3 || ''],
+        ['project_4_photos_4', config.project_4_photos_4 || ''],
+        ['project_4_description_1', config.project_4_description_1 || ''],
+        ['project_4_description_2', config.project_4_description_2 || ''],
+        ['project_4_description_3', config.project_4_description_3 || ''],
+        ['project_4_description_4', config.project_4_description_4 || ''],
+        ['project_4_solution', config.project_4_solution || ''],
+        ['project_4_outcome', config.project_4_outcome || ''],
+        ['project_5_title', config.project_5_title || ''],
+        ['project_5_description', config.project_5_description || ''],
+        ['project_5_internship_1_title', config.project_5_internship_1_title || ''],
+        ['project_5_internship_1_description', config.project_5_internship_1_description || ''],
+        ['project_5_internship_1_photos', config.project_5_internship_1_photos || ''],
+        ['project_5_internship_1_technologies', config.project_5_internship_1_technologies || ''],
+        ['project_5_internship_2_title', config.project_5_internship_2_title || ''],
+        ['project_5_internship_2_description', config.project_5_internship_2_description || ''],
+        ['project_5_internship_2_photos', config.project_5_internship_2_photos || ''],
+        ['project_5_internship_2_technologies', config.project_5_internship_2_technologies || ''],
+        ['mechanical_header', config.mechanical_header || ''],
+        ['mechanical_skills', config.mechanical_skills || ''],
+        ['electrical_header', config.electrical_header || ''],
+        ['electrical_skills', config.electrical_skills || ''],
+        ['software_header', config.software_header || ''],
+        ['software_skills', config.software_skills || ''],
+        ['email', config.email || ''],
+        ['phone', config.phone || ''],
+        ['linkedin', config.linkedin || '']
+      ])
+    };
+
+    window.elementSdk.init(element);
+    element.onConfigChange(config);
+    lucide.createIcons();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f57a51da171d70c',t:'MTc3NzczMTM5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
