@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Professional Portfolio</title>
-  <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <style>
@@ -290,7 +289,7 @@
     }
   </style>
   <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+
  </head>
  <body class="h-full">
   <div id="app" class="w-full h-full overflow-auto">
@@ -410,7 +409,7 @@
      <div class="grid md:grid-cols-2 gap-8">
       <div class="project-card project-grid-item cursor-pointer" onclick="viewProject(1)">
        <div class="project-card-image">
-        <img id="proj1-image" class="w-full h-full object-cover" alt="Project 1" loading="lazy" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
+        <img id="proj1-image" class="w-full h-full object-cover" alt="Project 1" loading="eager" onerror="this.style.background='#f0f4f8'; this.alt='Image unavailable';">
        </div>
        <div class="project-card-content">
         <h3 class="project-card-title" id="proj1-title">Project Title 1</h3>
@@ -478,7 +477,7 @@
     </div>
    </section>
    <footer class="bg-gray-900 text-white py-8 px-6 text-center border-t border-gray-800">
-    <p>© 2024 Your Name. All rights reserved.</p>
+    <p>Fellow Rock Fan? Let's Grab a Beer!</p>
    </footer>
   </div>
   <script>
@@ -512,6 +511,7 @@
       document.getElementById('skills').style.display = 'block';
       document.getElementById('contact').style.display = 'block';
       window.scrollTo(0, 0);
+      document.getElementById('hero-section').scrollIntoView({ behavior: 'smooth' });
     }
 
     let currentPhotoIndex = 0;
@@ -1010,8 +1010,8 @@
       about_text: "Mechanical Engineering (Honours) graduate from UQ with hands-on experience in mechatronic system design and hardware integration. Designed and deployed a motorized antenna control system for THIESS Mining, reducing alignment time by over 60% while meeting IP67 and AS3000 standards. Skilled in CAD, FEA, and embedded system integration for real-world engineering applications.",
       project_1_title: "Motorised Antenna Orientation Control",
       project_1_description: "Automated antenna alignment system for THIESS Mining. Replaced manual eye-alignment process with motorized control, reducing alignment time from 10–15 minutes to under 4 minutes per antenna.",
-      project_1_image: "https://i.imgur.com/VXGf8jU.jpeg",
-      project_1_photos: "https://i.imgur.com/VXGf8jU.jpeg, https://i.imgur.com/2B0SO9Z.jpeg",
+      project_1_image: "https://imgur.com/4X3ftaq",
+      project_1_photos: "https://imgur.com/A067uPc, https://imgur.com/ywKqeaJ, https://imgur.com/ssHlIbO, https://imgur.com/MaDfdNR, https://imgur.com/nJ4rpCm, https://imgur.com/YJ8fzkR, https://imgur.com/cJpdLFF, https://imgur.com/Dor70TU, https://imgur.com/LqtpOTG, https://imgur.com/MENcCQX, https://imgur.com/4X3ftaq",
       project_1_impact: "60% faster alignment",
       project_1_challenge: "Technicians manually aligned LTE antennas on 8-metre masts by eye, taking 10–15 minutes per antenna with high physical demand and inconsistent results.",
       project_1_solution: "Designed and deployed an automated orientation system using stepper motors controlled by an embedded microcontroller. The system accepts signal strength input and calculates optimal antenna angle, achieving accurate alignment in under 4 minutes with minimal manual intervention.",
@@ -1019,8 +1019,8 @@
       project_1_outcome: "Reduced alignment time by over 60%, improved positioning accuracy to ±2°, met IP67 waterproof and AS3000 electrical safety standards, and successfully deployed across THIESS mining sites.",
       project_2_title: "Remote-Controlled Tractor Pull System",
       project_2_description: "In a competitive mechanical design course, we were tasked with building a remote-controlled tractor capable of pulling a 60 kg sled while delivering maximum pulling force, staying lightweight, and remaining structurally robust under dynamic loads.",
-      project_2_image: "",
-      project_2_photos: "",
+      project_2_image: "https://i.imgur.com/TDQUE3v",
+      project_2_photos: "https://imgur.com/gwpvBGL, https://imgur.com/bC1FG2w, https://imgur.com/2bfgPe9, https://imgur.com/EYpJJcT, https://imgur.com/8POisRh, https://imgur.com/2B0SO9Z, https://imgur.com/nf0O8sn, https://imgur.com/x5EhGmc",
       project_2_impact: "Pulled 65kg, exceeded targets",
       project_2_challenge: "Design a lightweight tractor that could pull 60 kg while maintaining structural integrity.",
       project_2_solution: "Our design used optimized chassis geometry and drive ratios to maximize torque transfer.",
@@ -1028,7 +1028,7 @@
       project_2_outcome: "Successfully pulled 65 kg, exceeding design targets while remaining 15% lighter than competing designs.",
       project_3_title: "Remote-Controlled Mini Fire Truck",
       project_3_description: "In our first university mechanical engineering design project, we were tasked with building a compact remote controlled fire-response vehicle for simulated fire fighting scenarios. The prototype had to quickly detect and extinguish fires under strict time limits while remaining lightweight, reliable, and cost effective.",
-      project_3_image: "",
+      project_3_image: "https://imgur.com/0TTFD5t",
       project_3_photos: "",
       project_3_impact: "95% success rate",
       project_3_challenge: "Build a compact fire-fighting vehicle with autonomous fire detection and fast water delivery system.",
@@ -1037,11 +1037,11 @@
       project_3_outcome: "Completed fire scenarios 40% faster than baseline designs with 95% success rate in fire detection and extinguishing.",
       project_4_title: "Other Projects",
       project_4_description: "A collection of additional engineering projects and prototypes",
-      project_4_image: "",
-      project_4_photos: "https://i.imgur.com/TDQUE3v.jpeg, https://i.imgur.com/bC1FG2w.jpeg, https://i.imgur.com/EYpJJcT.jpeg",
-      project_4_photos_2: "https://i.imgur.com/8POisRh.jpeg",
-      project_4_photos_3: "https://i.imgur.com/TDQUE3v.jpeg",
-      project_4_photos_4: "https://i.imgur.com/bC1FG2w.jpeg",
+      project_4_image: "https://imgur.com/J8DSaby",
+      project_4_photos: "https://imgur.com/ROAlP1H, https://imgur.com/IucSPqi",
+      project_4_photos_2: "https://imgur.com/IufDhlI, https://i.imgur.com/RxELI4n.gif",
+      project_4_photos_3: "https://imgur.com/vvIDXTv, https://imgur.com/GgzdknT",
+      project_4_photos_4: "https://imgur.com/B94ulKC, https://imgur.com/QcfMYVA",
       project_4_description_1: "",
       project_4_description_2: "",
       project_4_description_3: "",
@@ -1052,13 +1052,15 @@
       project_4_outcome: "Add outcome and impact here",
       project_5_title: "Internships",
       project_5_description: "Your internship experience and projects here",
-      project_5_internship_1_title: "Internship 1 Company",
+      project_5_image: "https://imgur.com/Gjj5u34",
+      project_5_technologies: "Skill 1, Skill 2",
+      project_5_internship_1_title: "Greater Bay Area Elevator Testing Company Limited Macau",
       project_5_internship_1_description: "Describe your first internship here",
-      project_5_internship_1_photos: "",
+      project_5_internship_1_photos: "https://imgur.com/ipkKu2U, https://imgur.com/1ZmKqo1, https://imgur.com/PiZP2Pa, https://imgur.com/9a9HyaQ, https://imgur.com/BYXCvrs, https://imgur.com/iNaV0nh",
       project_5_internship_1_technologies: "Skill 1, Skill 2",
-      project_5_internship_2_title: "Internship 2 Company",
+      project_5_internship_2_title: "TEKOU Constuction and Engineering Company Limited Macau",
       project_5_internship_2_description: "Describe your second internship here",
-      project_5_internship_2_photos: "",
+      project_5_internship_2_photos: "https://imgur.com/46VmwyM, https://imgur.com/xtUVRCj, https://imgur.com/OFc9R8R, https://imgur.com/nLqwTQX",
       project_5_internship_2_technologies: "Skill 1, Skill 2",
       mechanical_header: "Mechanical",
       mechanical_skills: "CAD, FEA, Mechanical Design, Drive Systems, Composite Materials",
@@ -1099,7 +1101,7 @@
           
           if (imageEl) {
             const rawUrl = config[`project_${i}_image`] || '';
-            const photos = getProjectPhotos(i);
+            const photos = i !== 5 ? getProjectPhotos(i) : [];
             
             const finalUrl = rawUrl || (photos.length > 0 ? photos[0] : '');
             setImageSafe(imageEl, finalUrl);
@@ -1203,6 +1205,8 @@
         ['project_4_outcome', config.project_4_outcome || ''],
         ['project_5_title', config.project_5_title || ''],
         ['project_5_description', config.project_5_description || ''],
+        ['project_5_image', config.project_5_image || ''],
+        ['project_5_technologies', config.project_5_technologies || ''],
         ['project_5_internship_1_title', config.project_5_internship_1_title || ''],
         ['project_5_internship_1_description', config.project_5_internship_1_description || ''],
         ['project_5_internship_1_photos', config.project_5_internship_1_photos || ''],
@@ -1223,9 +1227,14 @@
       ])
     };
 
-    window.elementSdk.init(element);
+    if (window.elementSdk) {
+      window.elementSdk.init(element);
+    }
     element.onConfigChange(config);
     lucide.createIcons();
+
+    window.addEventListener('DOMContentLoaded', () => {
+      element.onConfigChange(config);
+    });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f57a51da171d70c',t:'MTc3NzczMTM5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
