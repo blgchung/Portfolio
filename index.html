@@ -1036,7 +1036,7 @@
     const defaultConfig = {
       full_name: "Boris Chung",
       headline: "Mechanical Engineer | Mechatronic Systems | Embedded Controls | Hardware Integration",
-      about_text: "Mechanical Engineering (Honours) graduate from UQ specialising in mechatronic systems, embedded controls, and hardware integration.<br><br>Experienced in designing and building real-world engineering systems including motorised control systems, robotics platforms, and industrial hardware prototypes.",
+      about_text: "Mechanical Engineering (Honours) graduate from The University of Queensland with hands-on experience in mechatronic systems, embedded controls, and hardware integration. I enjoy turning ideas into working prototypes from industrial antenna systems and competition robots to autonomous platforms.",
       project_1_title: "Motorised Antenna Orientation Control",
       project_1_description: "This was my final year team project with THIESS Mining. We developed a motorised system to automatically align LTE antennas on 8-metre masts, replacing the old manual hand-cranking method.",
       project_1_image: "https://imgur.com/4X3ftaq",
@@ -1090,10 +1090,15 @@
       project_5_internship_1_description: "Interned at Greater Bay Area Elevator Testing Company in Macau. I assisted with elevator inspections, enterprise and tender planning projects, and ISO documentation. I also handled phone calls with external parties and supported project coordination.<br><br>This was my first full-time work experience. I worked long hours in a short period and learned a lot, not just technical skills, but also how to work effectively in a team and maintain a professional attitude while contributing to company goals.",
       project_5_internship_1_photos: "https://imgur.com/ipkKu2U, https://imgur.com/1ZmKqo1, https://imgur.com/PiZP2Pa, https://imgur.com/9a9HyaQ, https://imgur.com/BYXCvrs, https://imgur.com/iNaV0nh",
       project_5_internship_1_technologies: "Technical Inspection, Compliance Assessment, Report Writing, Tender Preparation, Stakeholder Coordination, Regulatory Documentation, Client Communication, Schedule Management",
-      project_5_internship_2_title: "TEKOU Constuction and Engineering Company Limited Macau",
+      project_5_internship_2_title: "TEKOU Construction and Engineering Company Limited Macau",
       project_5_internship_2_description: "My first engineering internship at TEKOU Construction in Macau. I worked closely as my boss’s personal assistant supporting a government LED streetscape project. This included site visits to assess suitable locations for support wire installation, researching potential partner companies, preparing presentation materials, and assisting with project coordination.<br><br>While the role was more job shadowing than a traditional internship and the tasks were relatively straightforward, it gave me valuable early exposure to real construction environments and professional workplace expectations.",
       project_5_internship_2_photos: "https://imgur.com/46VmwyM, https://imgur.com/xtUVRCj, https://imgur.com/OFc9R8R, https://imgur.com/nLqwTQX",
       project_5_internship_2_technologies: "Site Assessment, Construction Coordination, Structural Evaluation, Presentation Preparation, Project Documentation, Stakeholder Engagement, Public Infrastructure, Multi-disciplinary Teamwork",
+      project_1_card_description: "Final year team project with THIESS Mining. Developed a motorised dual-axis system to automatically align LTE antennas on 8m masts.",
+      project_2_card_description: "Built a remote-controlled tractor for a pulling competition. Focused on high torque drivetrain design and electrical system integration under tight budget.",
+      project_3_card_description: "First-year mechanical design project. Built a remote-controlled fire truck optimised for water efficiency and speed in a competition setting.",
+      project_4_card_description: "Collection of other projects including ROS2 autonomous mapping robot, embedded Pong game, and high school servo-powered boxing & gymnastic robots.",
+      project_5_card_description: "Two internships in Macau covering elevator testing and construction project support.",
       mechanical_header: "Engineering Design",
       mechanical_skills: "CAD (Inventor, Fusion 360, AutoCAD, Siemens NX), FEA, STAR-CCM+, Simulink, Mechanical Design, Drivetrain Design, Composite Materials, 3D Printing",
       electrical_header: "Systems & Controls",
@@ -1123,7 +1128,10 @@
           const imageEl = document.getElementById(`proj${i}-image`);
 
           if (titleEl) titleEl.textContent = config[`project_${i}_title`];
-          if (descEl) descEl.textContent = config[`project_${i}_description`];
+          if (descEl) {
+            const cardDesc = config[`project_${i}_card_description`] || config[`project_${i}_description`];
+            descEl.textContent = cardDesc;
+          }
 
           if (techContainer) {
             const techString = config[`project_${i}_technologies`] || '';
