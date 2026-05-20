@@ -355,7 +355,7 @@
        <div id="photo-counter-int1" class="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium" style="display:none;"></div>
       </div>
       <p id="internship-1-description" class="text-lg text-gray-700 leading-relaxed mb-8"></p>
-      <h2 class="section-title mt-12">Key Technologies</h2>
+      <h2 class="section-title mt-12">Skills Developed</h2>
       <div id="internship-1-tech" class="flex flex-wrap gap-2 mb-12"></div>
      </div>
      <div id="internship-2-block" style="display: none;">
@@ -369,10 +369,12 @@
        <div id="photo-counter-int2" class="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium" style="display:none;"></div>
       </div>
       <p id="internship-2-description" class="text-lg text-gray-700 leading-relaxed mb-8"></p>
-      <h2 class="section-title mt-12">Key Technologies</h2>
+      <h2 class="section-title mt-12">Skills Developed</h2>
       <div id="internship-2-tech" class="flex flex-wrap gap-2 mb-12"></div>
      </div>
      <div class="prose max-w-none">
+      <h2 class="section-title mt-12" id="outcome-header">Outcome &amp; Impact</h2>
+      <p id="detail-outcome" class="text-lg text-gray-700 leading-relaxed mb-8">Describe the results and impact of your project here.</p>
       <h2 class="section-title mt-12" id="challenge-header" style="display: none;">Challenge</h2>
       <p id="detail-challenge" class="text-lg text-gray-700 leading-relaxed mb-8" style="display: none;">Add the challenge here in the edit panel.</p>
       <h2 class="section-title mt-12" id="solution-header">Solution</h2>
@@ -384,10 +386,6 @@
       <div id="detail-technologies" class="flex flex-wrap gap-2 mb-8"></div>
       <h2 class="section-title mt-12" id="tech-header-proj4" style="display: none;">Key Technologies</h2>
       <div id="detail-technologies-proj4" class="flex flex-wrap gap-2 mb-8" style="display: none;"></div>
-      
-      
-      <h2 class="section-title mt-12" id="outcome-header">Outcome &amp; Impact</h2>
-      <p id="detail-outcome" class="text-lg text-gray-700 leading-relaxed mb-8">Describe the results and impact of your project here.</p>
       <div id="detail-photo-gallery" style="display: none; margin-top: 3rem;">
        <h2 class="section-title">Project Photos</h2>
        <div id="gallery-scroller" class="photo-scroller"></div>
@@ -1043,7 +1041,7 @@
       project_1_description: "This was my final year team project with THIESS Mining. We developed a motorised system to automatically align LTE antennas on 8-metre masts, replacing the old manual hand-cranking method.",
       project_1_image: "https://imgur.com/4X3ftaq",
       project_1_photos: "https://imgur.com/A067uPc, https://imgur.com/ywKqeaJ, https://imgur.com/ssHlIbO, https://imgur.com/MaDfdNR, https://imgur.com/nJ4rpCm, https://imgur.com/YJ8fzkR, https://imgur.com/cJpdLFF, https://imgur.com/Dor70TU, https://imgur.com/LqtpOTG, https://imgur.com/MENcCQX, https://imgur.com/4X3ftaq",
-      project_1_impact: "60% faster alignment",
+      // project_1_impact: "",
       project_1_challenge: "Previously, technicians had to manually crank the antennas up, check the signal strength by eye, then crank them back down for adjustments. The process took 10 to 15 minutes per antenna, was physically demanding, and often gave inconsistent results.",
       project_1_solution: "As a team, we designed and built a dual-axis motorised positioning system using stepper motors controlled by a Raspberry Pi. The system provided real-time signal strength feedback so technicians could accurately align the antenna from the ground.<br><br>We selected a store-bought IP67-rated industrial enclosure to confidently meet the harsh environmental requirements. Within the tight size constraints of this enclosure, we optimised our mechanical design to reduce weight while still providing sufficient structural strength for real mining site conditions.",
       project_1_my_contribution: "I took ownership of the complete embedded software and control system. This included developing the Raspberry Pi code to control the dual-axis stepper motors, handle the physical button interface, and implement real-time signal strength scraping from the antenna. I also designed and built all the control wiring between the Raspberry Pi, motors, buttons, and power systems.<br><br>While reviewing my teammates’ mechanical design, I identified that one axis did not provide the required ±15° range of motion. I raised the issue and we collaborated on a solution to fix it.<br><br>I also contributed to the overall hardware manufacturing and assembly of the system.",
@@ -1053,7 +1051,7 @@
       project_2_description: "This was a competitive mechanical design course project where we were challenged to build a remote-controlled tractor capable of pulling a 60kg sled. The goal was to maximise pulling force while keeping the tractor lightweight and structurally strong under dynamic loads.",
       project_2_image: "https://i.imgur.com/TDQUE3v",
       project_2_photos: "https://imgur.com/gwpvBGL, https://imgur.com/bC1FG2w, https://imgur.com/2bfgPe9, https://imgur.com/EYpJJcT, https://imgur.com/8POisRh, https://imgur.com/2B0SO9Z, https://imgur.com/nf0O8sn, https://imgur.com/x5EhGmc",
-      project_2_impact: "Pulled 65kg, exceeded targets",
+      // project_2_impact: "",
       project_2_challenge: "The main challenge was to design a high-performance tractor that could generate strong pulling force while remaining lightweight and durable under dynamic loads. All subsequent design decisions and calculations were heavily dependent on carefully selecting the right motor ratings, motor drivers, and battery systems that could deliver sufficient power without exceeding our tight budget.",
       project_2_solution: "As a team, we went through multiple design iterations. We carefully selected a high KV motor and connected batteries in series to achieve the necessary voltage and current for strong torque output. Based on these electrical decisions, we designed and optimised a 127:1 gear reduction ratio to convert the motor’s high speed into powerful torque at the wheels.<br><br>We then built a modular structure consisting of a 3mm sheet aluminium box to house the drivetrain and motor, while a custom 3D-printed enclosure with an acrylic lid housed all the electrical components. This design allowed for easy maintenance, and protection of the electronics during competition pulls.",
       project_2_my_contribution: "I led the full electrical system design and assembly for the tractor. This included selecting suitable motors, drivers, and battery systems within tight budget constraints, designing the control circuitry, and building all the control wiring (motors to drivers, buttons to controller, power distribution, etc.).<br><br>Because the electrical subsystem was completed early, I was also heavily involved in the overall manufacturing and physical assembly of the tractor.<br><br>I additionally designed and 3D printed a custom emergency stop system as originally required, but the university later cancelled the custom E-stop requirement for safety reasons and provided a standard one to all teams.",
@@ -1063,7 +1061,7 @@
       project_3_description: "This was our very first mechanical engineering design project at university. We were tasked with building a compact remote-controlled fire-response vehicle to extinguish simulated fires under strict time limits.",
       project_3_image: "https://imgur.com/0TTFD5t",
       project_3_photos: "https://imgur.com/3W9wMSd, https://imgur.com/LaaaZlH, https://imgur.com/0TTFD5t, https://imgur.com/VwonCi6, https://imgur.com/QXomFHu, https://imgur.com/6Z4regU, https://imgur.com/NczqiVP",
-      project_3_impact: "95% success rate",
+      // project_3_impact: "",
       project_3_challenge: "This was our very first mechanical engineering design project at university. The main challenge was to build a lightweight remote-controlled fire truck that could extinguish simulated fires effectively while being very water-efficient. Points were awarded based on the number of fires extinguished versus the amount of water used, so balancing performance and efficiency was critical.<br><br>On top of that, we had very tight time and budget constraints as new engineering students. With so many teams and only one simulation arena, we barely had any opportunity to test our prototype before the actual competition.",
       project_3_solution: "We modified a store-bought chassis to create strong modular mounting points while keeping the overall weight low. As a team, we designed and built the drive system from scratch. For the water delivery system, we used a purchased pump and hose, 3D printed a custom nozzle, and coded the remote control using an Arduino Uno. Our main focus was achieving good accuracy and speed while minimising water waste during operation.",
       project_3_my_contribution: "I mainly worked on modifying the store-bought chassis to create good mounting points for everything else. I also helped decide the best layout and orientation for the water tank and control electronics to keep the weight balanced. I contributed to assembling the whole thing and joined in most testing sections and troubleshooting before the competition.",
@@ -1080,7 +1078,7 @@
       project_4_description_2: "• Pong Game (CSSE2010 Introduction to Computer Systems)<br><br>Developed a complete Pong game from scratch in C for an ATmega324A microcontroller as my first major embedded programming project. Implemented real-time LED matrix graphics, precise ball physics, collision detection, scoring, game speed control, pause system, and sound effects. Handled multiple input methods including physical buttons and serial terminal.",
       project_4_description_3: "• Boxing Robot (High School ECA)<br><br>Built a servo-powered boxing robot using sheet aluminium. Handled the full fabrication process including cutting, drilling, and folding the aluminium sheets, then assembled the structure. Programmed all movements and implemented wireless control via PS2 controller for standing up from facedown positions (front and back), executing punches, and balance stabilisation.",
       project_4_description_4: "• Gymnastic Robot (High School)<br><br>My very first STEM project that sparked my strong interest in hands-on fabrication and building. Built a servo-powered gymnastic robot and programmed every movement sequence. Created a variety of impressive routines including flips, cartwheels, and other gymnastic motions that the robot could perform autonomously.",
-      project_4_impact: "",
+      // project_4_impact: "",
       project_4_solution: "Add solution description here",
       project_4_technologies: "ROS2, Autonomous Navigation, Embedded C Programming, Servo Control, Sheet Metal Fabrication, Wireless Control",
       project_4_outcome: "Add outcome and impact here",
@@ -1089,11 +1087,11 @@
       project_5_image: "https://imgur.com/Gjj5u34",
       project_5_technologies: "On-site Inspection, Technical Report Writing, Tender Preparation, Regulatory Compliance, Stakeholder Coordination, Mechanical & Electrical Inspection, Multi-stakeholder Scheduling, QA Documentation, Compliance Auditing, Client & Supplier Liaison",
       project_5_internship_1_title: "Greater Bay Area Elevator Testing Company Limited Macau",
-      project_5_internship_1_description: "Interned at Greater Bay Area Elevator Testing Company in Macau, one of the region's leading elevator inspection and certification bodies.<br><br>I conducted on site mechanical and electrical inspections of elevator systems across commercial and residential buildings, assessing compliance against local safety standards and identifying deficiencies for rectification. I produced over 30 technical inspection reports and tender documents, including detailed costing and regulatory documentation.<br><br>I also coordinated multi stakeholder inspection schedules under tight deadlines and managed external communications with clients and partner companies. This role gave me hands on exposure to regulated industrial inspection work, technical report writing, and professional client engagement in a fast paced engineering environment.",
+      project_5_internship_1_description: "Interned at Greater Bay Area Elevator Testing Company in Macau. I assisted with elevator inspections, enterprise and tender planning projects, and ISO documentation. I also handled phone calls with external parties and supported project coordination.<br><br>This was my first full-time work experience. I worked long hours in a short period and learned a lot, not just technical skills, but also how to work effectively in a team and maintain a professional attitude while contributing to company goals.",
       project_5_internship_1_photos: "https://imgur.com/ipkKu2U, https://imgur.com/1ZmKqo1, https://imgur.com/PiZP2Pa, https://imgur.com/9a9HyaQ, https://imgur.com/BYXCvrs, https://imgur.com/iNaV0nh",
       project_5_internship_1_technologies: "Technical Inspection, Compliance Assessment, Report Writing, Tender Preparation, Stakeholder Coordination, Regulatory Documentation, Client Communication, Schedule Management",
       project_5_internship_2_title: "TEKOU Constuction and Engineering Company Limited Macau",
-      project_5_internship_2_description: "Interned at TEKOU Construction and Engineering Company in Macau, supporting delivery of a large scale government commissioned LED streetscape project across multiple public sites.<br><br>I conducted site visits to assess structural conditions and identify suitable locations for support wire installation, contributing directly to project planning and execution decisions. I researched and evaluated potential collaboration companies and prepared presentation materials for internal and external stakeholders.<br><br>I also supported general project coordination across a multidisciplinary team, gaining early exposure to real construction environments, site engineering workflows, and the coordination demands of public infrastructure delivery.",
+      project_5_internship_2_description: "My first engineering internship at TEKOU Construction in Macau. I worked closely as my boss’s personal assistant supporting a government LED streetscape project. This included site visits to assess suitable locations for support wire installation, researching potential partner companies, preparing presentation materials, and assisting with project coordination.<br><br>While the role was more job shadowing than a traditional internship and the tasks were relatively straightforward, it gave me valuable early exposure to real construction environments and professional workplace expectations.",
       project_5_internship_2_photos: "https://imgur.com/46VmwyM, https://imgur.com/xtUVRCj, https://imgur.com/OFc9R8R, https://imgur.com/nLqwTQX",
       project_5_internship_2_technologies: "Site Assessment, Construction Coordination, Structural Evaluation, Presentation Preparation, Project Documentation, Stakeholder Engagement, Public Infrastructure, Multi-disciplinary Teamwork",
       mechanical_header: "Engineering Design",
